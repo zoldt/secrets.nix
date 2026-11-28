@@ -1,9 +1,9 @@
-{inputs, ...}: {
+{sops-nix, ...}: {
   flake.modules.nixos.default =
     # sops-nix, decrypting with the host's age key. Hosts set
     # `sops.defaultSopsFile` and declare the `sops.secrets` their services use.
     {lib, ...}: {
-      imports = [inputs.sops-nix.nixosModules.sops];
+      imports = [sops-nix.nixosModules.sops];
 
       sops = {
         age = {
